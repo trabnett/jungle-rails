@@ -1,4 +1,5 @@
 class Admin::CategoriesController < ApplicationController
+  http_basic_authenticate_with name: ENV['NAME'], password: ENV['PASSWORD']
 
   def show
     @category = Category.find params[:id]
