@@ -5,14 +5,13 @@
   </header>
 
   <div class="order-summary jumbotron">
-    <h4>Thank you for your order!</h4>
+    <h4>Thank you for your order!<%=current_user.first_name%></h4>
     <p>Order Totoal: $<%= @order.total_cents.to_f / 100 %></p>
     <p><%= current_user.email %></p>
     <p>---></p>
     <% @order.line_items.each do |p| %>
     <p><%=(Product.find_by id: p.product_id).name%></p>
     <p><%=(Product.find_by id: p.product_id).description%></p>
-    <p><%=(Product.find_by id: p.product_id).image%></p>
     <%= image_tag ((Product.find_by id: p.product_id).image), class: "img-responsive"%>
     <p>Prouduct ID: <%= p.product_id %>, Number Purchased: <%= p.quantity %>, Item Totoal: $<%= p.item_price_cents.to_f / 100%></p>
     <p>---></p>

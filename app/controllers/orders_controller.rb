@@ -13,6 +13,7 @@ class OrdersController < ApplicationController
 
     if order.valid?
       empty_cart!
+      UserMailer.purchase_confirmation(order).deliver_now
       redirect_to order, notice: 'Your Order has been placed.'
     else
       redirect_to cart_path, flash: { error: order.errors.full_messages.first }
@@ -39,6 +40,7 @@ class OrdersController < ApplicationController
   end
 
   def create_order(stripe_charge)
+    @current_user = current_user
     order = Order.new(
       email: params[:stripeEmail],
       total_cents: cart_subtotal_cents,
