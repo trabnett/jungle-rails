@@ -10,7 +10,7 @@
       Total cost: $<%= @order.total_cents.to_f / 100%>
       <% (@line_items = LineItem.where(order_id: @order.id)) %>
       <% @line_items.each do |p| %>
-        <p><%=(Product.find_by id: p.product_id).name%></p>
+        <p><%=p.product.name%></p>
         <p>Prouduct ID: <%= p.product_id %>, Number Purchased: <%= p.quantity %>, Item Totoal: $<%= p.item_price_cents.to_f / 100%></p>
         <p>---></p>
         <% end %>

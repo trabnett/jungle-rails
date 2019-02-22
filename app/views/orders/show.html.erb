@@ -5,7 +5,7 @@
   </header>
 
   <div class="order-summary jumbotron">
-    <h4>Thank you for your order!<%=current_user.first_name%></h4>
+    <h4>Thank you for your order!</h4>
     <p>Order Totoal: $<%= @order.total_cents.to_f / 100 %></p>
     <p><%= current_user.email %></p>
     <p>---></p>
