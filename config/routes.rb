@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     post   :remove_item
   end
 
+  resources :ratings, only: [:index, :show, :delete]
+
   resources :orders, only: [:create, :show]
 
   namespace :admin do

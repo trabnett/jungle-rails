@@ -1,0 +1,19 @@
+<section>
+
+  <header>
+    <h1>Reviews</h1>
+  </header>
+
+  <div>
+    <h4>"Here's what the people think"</h4>
+    <% @ratings.each do |p| %>
+    <p><%= p.user_id%></p>
+    <p><%=p.description%></p>
+    <p>---></p>
+    <% end %>
+
+  </div>
+
+  <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
+
+</section>
