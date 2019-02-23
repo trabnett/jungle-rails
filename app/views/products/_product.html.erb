@@ -8,6 +8,9 @@
       <h4><%= product.name %></h4>
     <% end %>
   </header>
+  <% if product.ratings.average(:rating) %>
+  <p><em>Product Rating: <strong><%=product.ratings.average(:rating)%>/5</strong></em><p>
+  <% end %>
   <p class="description">
     <%= product.description %>
   </p>

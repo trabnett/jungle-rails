@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     post   :remove_item
   end
 
-  resources :ratings, only: [:index, :show, :delete]
+  resources :ratings, except: [:edit, :update]
 
   resources :orders, only: [:create, :show]
 

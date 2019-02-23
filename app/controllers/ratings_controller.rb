@@ -8,21 +8,26 @@ class RatingsController < ApplicationController
         @rating = Rating.find params[:id]
     end
 
+    def new
+        @rating = Rating.new
+        @product = Product.find params[:product]
+        @current_user = current_user
+    end
 
     def create
-        @prating = Rating.new(rating_params)
-    
+        @rating = Rating.new(rating_params)
         if @rating.save
-          redirect_to [:admin, :products], notice: 'Rating recorded!'
+          redirect_to root_path, notice: 'Rating recorded!'
         else
+            puts rating_params
           render :new
         end
     end
 
     def destroy
-    @rating = Rating.find params[:id]
-    @rating.destroy
-    redirect_to [:admin, :products], notice: 'Rating deleted!'
+        @rating = Rating.find params[:id]
+        @rating.destroy
+        redirect_to :back
     end
     
     private
