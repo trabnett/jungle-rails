@@ -22,5 +22,7 @@ Use Credit Card # 4111 1111 1111 1111, plus a valid expiery date (i.e. one in th
 * Stripe
 
 ### Screenshots
-![Multiple Users]()
-![Single User Page]()
+![Home Page](https://github.com/trabnett/jungle-rails/blob/master/app/assets/images/Screen%20Shot%202019-02-24%20at%208.03.44%20AM.png)
+![Product Display](https://github.com/trabnett/jungle-rails/blob/master/app/assets/images/Screen%20Shot%202019-02-24%20at%208.04.00%20AM.png)
+![Admin Categories](https://github.com/trabnett/jungle-rails/blob/master/app/assets/images/Screen%20Shot%202019-02-24%20at%208.04.25%20AM.png)
+![Signup](https://github.com/trabnett/jungle-rails/blob/master/app/assets/images/Screen%20Shot%202019-02-24%20at%208.04.41%20AM.png)
