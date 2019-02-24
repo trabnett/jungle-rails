@@ -1,4 +1,5 @@
 class RatingsController < ApplicationController
+    before_action :find_product
 
     def index
         @ratings = Rating.all.order(created_at: :desc)
@@ -10,14 +11,14 @@ class RatingsController < ApplicationController
 
     def new
         @rating = Rating.new
-        @product = Product.find params[:product]
-        @current_user = current_user
     end
 
     def create
         @rating = Rating.new(rating_params)
+        @rating.product_id = @product.id
+        @rating.user_id = current_user.id
         if @rating.save
-          redirect_to root_path, notice: 'Rating recorded!'
+          redirect_to product_path(@product), notice: 'Rating recorded!'
         else
             puts rating_params
           render :new
@@ -33,12 +34,16 @@ class RatingsController < ApplicationController
     private
 
     def rating_params
-    params.require(:rating).permit(
-        :product_id,
-        :user_id,
-        :description,
-        :rating
-    )
+        params.require(:rating).permit(
+            :product_id,
+            :user_id,
+            :description,
+            :rating
+        )
+    end
+
+    def find_product
+        @product = Product.find(params[:product_id])
     end
 
 

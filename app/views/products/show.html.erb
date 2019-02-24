@@ -23,19 +23,19 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
           <dt>Customer Reviews</dt>
-          <dd>Product Rating: <strong><%=@product.ratings.average(:rating)%>/5</strong></dd>
+          <dd>Product Rating: <strong><%=((@product.ratings.average(:rating).to_f * 100).to_i).to_f / 100 %>/5</strong></dd>
           <% @product.ratings.each do |p| %>
             <dt>---></dt>
             <dd><%=p.description%></dd>
             <dd><%=p.rating%>/5</dd>
-            <% if   current_user && current_user.id == p.user_id %>
-            <dd><%= button_to "delete", p, :method => :delete %></dd>
-           <% end %>
+            <% if current_user && current_user.id == p.user_id %>
+              <dd><%= button_to "delete", product_rating_path(current_user, p), :method => :delete %></dd>
             <% end %>
-            <% if current_user %>
-              <dt><%= "Rate this product: " %></td>
-              <dd><%= link_to "Ratings", new_rating_path(product: @product, current_user: current_user) %></dd>
-             <% end %>
+          <% end %>
+          <% if current_user %>
+            <dt><%= "Rate this product: " %></td>
+            <dd><%= link_to "Ratings", new_product_rating_path(@product) %></dd>
+          <% end %>
         </dl>
       </div>
     </div>

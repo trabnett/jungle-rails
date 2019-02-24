@@ -27,7 +27,7 @@
         </li>
       </ul>   
       <% if current_user %>
-        <span class="welcome"> Welcome :<%= current_user.first_name %></span>
+        <span class="welcome"> Welcome: <%= current_user.first_name %></span>
         <%= link_to "Logout", logout_path, class: 'nav-item' %>
         <% else %>
       <%= link_to "Log in", login_path, class: 'nav-item' %>
