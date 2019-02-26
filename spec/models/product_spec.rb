@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Product, type: :model do
   category = Category.new(name: "electronics")
-  product = Product.new(category_id: category.id, name: "widget", price: 5, quantity: 0, category_id: 3)
+  product = Product.new(category_id: category.id, name: "widget", price: 5, quantity: 0)
 
   describe 'Validations' do
     it "is not valid without a name" do
