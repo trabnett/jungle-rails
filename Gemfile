@@ -26,6 +26,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+group :test do
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'poltergeist'  
+end
+
 gem 'puma'
 
 gem 'bootstrap-sass', '~> 3.3.6'
